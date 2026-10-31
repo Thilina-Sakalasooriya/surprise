@@ -1,0 +1,615 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rose-pink: #f8a4c4;
+    --deep-rose: #d946a0;
+    --blush: #ffe4ec;
+    --cream: #fff7fa;
+    --text-primary: #4a2c3a;
+    --text-secondary: #6b4a57;
+    --gold: #f2d77c;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating Hearts Background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(217, 70, 160, 0.15);
+    animation: floatHeart linear infinite;
+    font-size: 20px;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(ellipse at top, var(--blush) 0%, var(--cream) 70%);
+    padding: 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1.2s ease-out;
+    z-index: 1;
+}
+
+.pre-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1.2s ease-out 0.2s backwards;
+}
+
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1.2s ease-out 0.4s backwards;
+}
+
+.highlight {
+    color: var(--deep-rose);
+    display: inline-block;
+    position: relative;
+}
+
+.highlight::after {
+    content: '💖';
+    position: absolute;
+    top: -10px;
+    right: -30px;
+    font-size: 1.5rem;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1.2s ease-out 0.6s backwards;
+}
+
+.love-quote {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    color: var(--deep-rose);
+    font-style: italic;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1.2s ease-out 0.7s backwards;
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--deep-rose);
+    font-size: 0.9rem;
+    animation: fadeInUp 1.2s ease-out 0.8s backwards, bounce 2s infinite 2s;
+}
+
+.scroll-indicator i {
+    font-size: 1.2rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
+
+.section-header h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--deep-rose);
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+.section-header p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 6rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--rose-pink), var(--deep-rose));
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50%;
+    position: relative;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50%;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--deep-rose);
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px var(--blush);
+    z-index: 2;
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(217, 70, 160, 0.1);
+    max-width: 400px;
+    margin: 0 2rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(217, 70, 160, 0.15);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    right: auto;
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.timeline-content h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--deep-rose);
+    margin-bottom: 0.3rem;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--rose-pink);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, white 0%, var(--blush) 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(217, 70, 160, 0.12);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--blush) 0%, white 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    color: var(--rose-pink);
+    border: 2px dashed var(--rose-pink);
+}
+
+.gallery-placeholder i {
+    font-size: 3rem;
+}
+
+.gallery-placeholder span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Love Letter Section */
+.love-letter {
+    padding: 6rem 1rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.letter-card {
+    max-width: 700px;
+    background: white;
+    padding: clamp(2rem, 6vw, 4rem);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(217, 70, 160, 0.15);
+    position: relative;
+    border: 1px solid var(--blush);
+}
+
+.letter-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--rose-pink, var(--deep-rose)));
+    border-radius: 2px;
+}
+
+.letter-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.letter-header h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: var(--deep-rose);
+    margin-bottom: 1rem;
+}
+
+.letter-heart {
+    color: var(--deep-rose);
+    font-size: 1.8rem;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.letter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.letter-content p {
+    color: var(--text-secondary);
+    line-height: 1.9;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    font-weight: 300;
+}
+
+.letter-signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.signature-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--deep-rose);
+    font-style: normal;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* Surprise Section */
+.surprise-section {
+    padding: 6rem 1rem;
+    text-align: center;
+    background: radial-gradient(ellipse at center, var(--blush) 0%, var(--cream) 70%);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.surprise-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+}
+
+.surprise-content h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--deep-rose);
+    margin-bottom: 0.8rem;
+}
+
+.surprise-content p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.surprise-button {
+    background: linear-gradient(135deg, var(--deep-rose) 0%, #c7368f 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(217, 70, 160, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.surprise-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(217, 70, 160, 0.4);
+}
+
+.surprise-button:active {
+    transform: scale(0.98);
+}
+
+.hidden-message {
+    margin-top: 2.5rem;
+    display: none;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hidden-message.show {
+    display: block;
+}
+
+.big-message {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--deep-rose);
+    margin-bottom: 0.8rem;
+}
+
+.heart-beat {
+    color: var(--deep-rose);
+    animation: heartBeat 1s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: white;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.footer i {
+    color: var(--deep-rose);
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.footer-sub {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        justify-content: flex-start;
+        padding-right: 0;
+        padding-left: 80px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        padding-left: 80px;
+    }
+    
+    .timeline-dot {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    .timeline-content::before {
+        left: -10px;
+        right: auto;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -10px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .letter-card {
+        padding: 2rem 1.5rem;
+    }
+}
