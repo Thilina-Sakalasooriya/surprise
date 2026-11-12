@@ -259,15 +259,6 @@ function setupScrollAnimations() {
         observer.observe(item);
     });
     
-    // Observe gallery items
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px) scale(0.9)';
-        item.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
-        observer.observe(item);
-    });
-    
     // Observe letter card
     const letterCard = document.querySelector('.letter-card');
     if (letterCard) {
